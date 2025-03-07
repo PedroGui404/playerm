@@ -1,0 +1,32 @@
+{
+    "videos": [
+        {
+            "titulo": "Aula 1",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=ae2636ac-0a8a-4e31-9778-2f1edf07056d&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição da Aula 1",
+            "categoria": "scanntech",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SgLnzoomzah0f2VshIgskdv-xAWx3e2tvw&s"
+        },
+        {
+            "titulo": "Aula 2",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=53cb5dce-1031-4b9b-91b3-ef876d2436ad",
+            "descricao": "Descrição da Aula 2",
+            "categoria": "scanntech",
+            "thumbnail": "/imagens/imagem2.png"
+        },
+        {
+            "titulo": "Aula 3",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=3b841447-a50f-468d-9ffb-1011dab714a1",
+            "descricao": "Descrição da Aula 3",
+            "categoria": "scanntech",
+            "thumbnail": "/imagens/imagem.png"
+        },
+        {
+            "titulo": "video youtube",
+            "link": "https://www.youtube.com/embed/tgbNymZ7vqY",
+            "descricao": "Descrição da Aula 3",
+            "categoria": "youtube",
+            "thumbnail": "/imagens/imagem.png"
+        }
+    ]
+}
