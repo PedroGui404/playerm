@@ -5,54 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu de Seleção de Vídeos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-
-    </style>
 </head>
-<body class="bg-gray-100">
-    <div class="flex h-screen">
-        <!-- Conteúdo Principal -->
-        <main class="flex-1 px-6 py-2 flex flex-col gap-2">
-            <!-- Barra de Pesquisa (centralizada e menor) -->
-            <div class="w-1/7 mx-auto relative">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Pesquisar vídeos..."
-                    class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                />
-                <!-- Área de Resultados da Pesquisa -->
-                <div id="search-results" class="hidden absolute w-full mt-1 bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto z-10">
-                    <!-- Resultados serão carregados aqui dinamicamente -->
-                </div>
+<body class="bg-gray-100 h-screen flex">
+
+    <!-- Conteúdo Principal -->
+    <main class="flex flex-1 h-full p-6 gap-6">
+        <!-- Vídeo Principal e Descrição -->
+        <div class="flex-1 flex flex-col h-full">
+            <!-- Vídeo em 16:9, responsivo -->
+            <div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
+                <iframe id="video-iframe" class="w-full h-full" frameborder="0" scrolling="no" allowfullscreen></iframe>
             </div>
 
-            <!-- Vídeo Principal e Lista de Vídeos -->
-            <div class="flex gap-6">
-                <!-- Vídeo Principal -->
-                <div class="flex-1">
-                    <div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
-                        <iframe id="video-iframe" class="w-full h-full" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                    </div>
-                    <div class="mt-4 p-4 bg-white shadow rounded-lg">
-                        <h2 id="video-titulo" class="text-xl font-semibold">Título da Aula</h2>
-                        <p id="video-descricao" class="text-gray-600 mt-2">Descrição da aula selecionada...</p>
-                    </div>
-                </div>
-
-                <!-- Lista de Vídeos -->
-                <aside id="video-list" class="w-1/3 truncate space-y-4">
-                    <!-- Vídeos serão carregados aqui dinamicamente -->
-                </aside>
+            <!-- Descrição ajustável -->
+            <div class="mt-4 p-4 bg-white shadow rounded-lg flex-grow overflow-auto max-w-[1150px]">
+                <h2 id="video-titulo" class="text-xl font-semibold">Título da Aula</h2>
+                <p id="video-descricao" class="text-gray-600 mt-2 w-full break-words">
+                    Descrição da aula selecionada... Esse texto agora pode crescer sem travar a altura e quebrar corretamente.
+                </p>
             </div>
-        </main>
-    </div>
+        </div>
+
+        <!-- Lista de Vídeos -->
+        <section class="w-1/5 p-2 flex flex-col h-full">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Pesquisar vídeos..."
+                class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            />
+
+            <!-- Lista com Scroll -->
+            <aside id="video-list" class="flex-1 overflow-y-auto space-y-4 mt-4">
+                <!-- Vídeos serão carregados aqui dinamicamente -->
+            </aside>
+        </section>
+    </main>
 
     <script>
-        let videoAtual = ""; // Variável para armazenar o vídeo atual
-        let todosVideos = []; // Variável para armazenar todos os vídeos carregados
+        let videoAtual = "";
+        let todosVideos = [];
+        let videosFiltrados = [];
 
-        // Função para carregar o vídeo no iframe
         function carregarVideo(element, url, titulo, descricao) {
             if (url !== videoAtual) {
                 document.getElementById('video-iframe').src = url;
@@ -62,87 +56,52 @@
             }
         }
 
-        // Função para carregar a lista de vídeos
         function carregarListaVideos(videos) {
             const videoList = document.getElementById('video-list');
-            videoList.innerHTML = ""; // Limpa a lista antes de carregar novos vídeos
+            videoList.innerHTML = "";
             videos.forEach(video => {
                 const videoElement = document.createElement('div');
-                videoElement.className = 'cursor-pointer flex items-center space-x-4 bg-white p-2 rounded-lg shadow hover:bg-gray-200';
+                videoElement.className = 'cursor-pointer flex items-center space-x-4 bg-white p-2 mx-1 rounded-lg shadow hover:bg-gray-200';
                 videoElement.onclick = () => carregarVideo(videoElement, video.link, video.titulo, video.descricao);
                 videoElement.innerHTML = `
-                    <img class="w-24 h-16 rounded-lg" src="${video.thumbnail}" alt="Thumbnail ${video.titulo}">
-                    <p class="text-sm text-gray-800">${video.titulo}</p>
-                `;
+    <img class="w-24 h-16 rounded-lg" src="${video.thumbnail}" alt="Thumbnail ${video.titulo}">
+    <p class="text-sm text-gray-800 truncate max-w-full">${video.titulo}</p>
+`;
+
                 videoList.appendChild(videoElement);
             });
         }
 
-        // Função para filtrar vídeos enquanto o usuário digita
-        function filtrarVideos(termo) {
-            const resultados = todosVideos.filter(video =>
-                video.titulo.toLowerCase().includes(termo.toLowerCase())
-            );
-
-            const searchResults = document.getElementById('search-results');
-            searchResults.innerHTML = ""; // Limpa os resultados anteriores
-
-            if (termo && resultados.length > 0) {
-                resultados.forEach(video => {
-                    const resultElement = document.createElement('div');
-                    resultElement.className = 'cursor-pointer flex items-center space-x-4 p-3 hover:bg-gray-100';
-                    resultElement.onclick = () => {
-                        carregarVideo(null, video.link, video.titulo, video.descricao);
-                        searchResults.classList.add('hidden'); // Oculta a área de resultados após a seleção
-                    };
-                    resultElement.innerHTML = `
-                        <img class="w-12 h-8 rounded-lg" src="${video.thumbnail}" alt="Thumbnail ${video.titulo}">
-                        <p class="text-sm text-gray-800">${video.titulo}</p>
-                    `;
-                    searchResults.appendChild(resultElement);
-                });
-                searchResults.classList.remove('hidden'); // Exibe a área de resultados
-            } else {
-                searchResults.classList.add('hidden'); // Oculta a área de resultados se não houver correspondências
-            }
-        }
-
-        // Função para obter o parâmetro da query string
         function obterParametroQuery(nome) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(nome);
         }
 
-        // Fechar os resultados ao clicar fora da barra de pesquisa
-        document.addEventListener('click', (event) => {
-            const searchResults = document.getElementById('search-results');
-            const searchInput = document.getElementById('search-input');
-            if (!event.target.closest('.search-container')) {
-                searchResults.classList.add('hidden'); // Oculta os resultados ao clicar fora
-            }
-        });
+        function filtrarVideos(termo) {
+            const termoLower = termo.toLowerCase();
+            const resultados = videosFiltrados.filter(video =>
+                video.titulo.toLowerCase().includes(termoLower)
+            );
+            carregarListaVideos(resultados);
+        }
 
-        // Carregar o JSON e inicializar a lista de vídeos
-        window.onload = function() {
+        window.onload = function () {
             fetch('data.json')
                 .then(response => response.json())
                 .then(data => {
-                    const categoria = obterParametroQuery('categoria'); // Obtém a categoria da query string
+                    const categoria = obterParametroQuery('categoria');
                     todosVideos = data.videos;
 
-                    // Filtra os vídeos pela categoria, se uma categoria for fornecida
-                    let videosFiltrados = categoria
+                    videosFiltrados = categoria
                         ? todosVideos.filter(video => video.categoria === categoria)
                         : todosVideos;
 
                     if (videosFiltrados.length > 0) {
                         carregarListaVideos(videosFiltrados);
-                        carregarVideo(null, videosFiltrados[0].link, videosFiltrados[0].titulo, videosFiltrados[0].descricao); // Carrega o primeiro vídeo
+                        carregarVideo(null, videosFiltrados[0].link, videosFiltrados[0].titulo, videosFiltrados[0].descricao);
                     }
 
-                    // Configura o evento de input na barra de pesquisa
-                    const searchInput = document.getElementById('search-input');
-                    searchInput.addEventListener('input', (e) => {
+                    document.getElementById('search-input').addEventListener('input', (e) => {
                         filtrarVideos(e.target.value);
                     });
                 })
