@@ -1,32 +1,53 @@
 {
     "videos": [
         {
-            "titulo": "Aula 1",
+            "titulo": "Treinamento Scannview: Abas Macro",
             "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=ae2636ac-0a8a-4e31-9778-2f1edf07056d&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
             "descricao": "Descrição da Aula 1",
             "categoria": "scanntech",
-            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SgLnzoomzah0f2VshIgskdv-xAWx3e2tvw&s"
+            "thumbnail": "/Imagens/Scannview_pricing.png"
         },
         {
-            "titulo": "Aula 2",
+            "titulo": "Treinamento Scannview: Abas pricing",
             "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=53cb5dce-1031-4b9b-91b3-ef876d2436ad",
             "descricao": "Descrição da Aula 2",
             "categoria": "scanntech",
-            "thumbnail": "Imagens/Scannview_Abas_macro.png"
+            "thumbnail": "/Imagens/Scannview_Abas_macro.png"
         },
         {
-            "titulo": "Aula 3",
+            "titulo": "Treinamento Scannview: One Page Gerencial",
             "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=3b841447-a50f-468d-9ffb-1011dab714a1",
-            "descricao": "teste scanntech",
+            "descricao": "Descrição da Aula 3",
             "categoria": "scanntech",
-            "thumbnail": "Imagens/Relatorio_Scannshare.png"
+            "thumbnail": "/Imagens/imagem.png"
         },
         {
-            "titulo": "kami teste",
-            "link": "https://www.youtube.com/embed/tgbNymZ7vqY",
-            "descricao": "Descrição da Aula 3",
+            "titulo": "Treinamento modelo novo (Consultoria - Kami tecnologia)",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=0c288c20-938a-4ea6-ac8b-24b0d23142c9&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição da Treinamento modelo novo",
             "categoria": "kami",
-            "thumbnail": "Imagens/Overview_Fabric_Kami.png"
+            "thumbnail": "/Imagens/Kami_Treinamento_modelo_novo.png"
+        },
+        {
+            "titulo": "Overview Fabric - Kami & MBR",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/bianca_anjos_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=08184025-7e08-47d3-af58-c154e05c2d6e&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição da Overview Fabric - Kami & MBR",
+            "categoria": "kami",
+            "thumbnail": "/Imagens/Overview_Fabric_Kami.png"
+        },
+        {
+            "titulo": "Relatório Scannshare",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/bianca_anjos_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=08184025-7e08-47d3-af58-c154e05c2d6e&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição da Relatório Scannshare",
+            "categoria": "scanntech",
+            "thumbnail": "/Imagens/Relatorio_Scannshare.png"
+        },
+        {
+            "titulo": "Scanntech - Oportunidades mapeadas por filial - RJ (Gerente Márcio G. e Supervisores)",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=ca92ea50-a2f1-4a15-a034-8029eb3d539a&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição da Scanntech - Oportunidades mapeadas por filial - RJ (Gerente Márcio G. e Supervisores)",
+            "categoria": "scanntech",
+            "thumbnail": "/Imagens/Scanntech_Oportunidades_mapeadas.png"
         }
     ]
 }
