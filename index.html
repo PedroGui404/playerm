@@ -1,112 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de Seleção de Vídeos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu de Seleção de Vídeos</title>
+  <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
 </head>
-<body class="bg-gray-100 h-screen flex">
 
-    <!-- Conteúdo Principal -->
-    <main class="flex flex-1 h-full p-6 gap-6">
-        <!-- Vídeo Principal e Descrição -->
-        <div class="flex-1 flex flex-col h-full">
-            <!-- Vídeo em 16:9, responsivo -->
-            <div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
-                <iframe id="video-iframe" class="w-full h-full" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
+<body class="bg-gray-100 text-gray-900 h-screen flex">
 
-            <!-- Descrição ajustável -->
-            <div class="mt-4 p-4 bg-white shadow rounded-lg flex-grow overflow-auto max-w-[1150px]">
-                <h2 id="video-titulo" class="text-xl font-semibold">Título da Aula</h2>
-                <p id="video-descricao" class="text-gray-600 mt-2 w-full break-words">
-                    Descrição da aula selecionada... Esse texto agora pode crescer sem travar a altura e quebrar corretamente.
-                </p>
-            </div>
+  <main class="flex flex-1 h-full p-6 gap-6 max-w-[1600px] mx-auto">
+    <!-- VÍDEO PRINCIPAL + DESCRIÇÃO -->
+    <div class="flex-1 flex flex-col h-full">
+      <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-fit">
+        <!-- Vídeo -->
+        <div class="w-full aspect-video">
+          <iframe id="video-iframe" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <!-- Lista de Vídeos -->
-        <section class="w-1/5 p-2 flex flex-col h-full">
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Pesquisar vídeos..."
-                class="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-            />
+        <!-- Título + Descrição -->
+        <div class="p-4">
+          <h2 id="video-titulo" class="text-xl font-semibold text-gray-800 line-clamp-2">
+            Título do Vídeo Principal Aqui - Título do Vídeo Principal Aqui
+          </h2>
+          <p id="video-descricao" class="text-gray-600 text-sm mt-2 leading-relaxed line-clamp-3">
+            Descrição do vídeo...
+          </p>
+        </div>
+      </div>
+    </div>
 
-            <!-- Lista com Scroll -->
-            <aside id="video-list" class="flex-1 overflow-y-auto space-y-4 mt-4">
-                <!-- Vídeos serão carregados aqui dinamicamente -->
-            </aside>
-        </section>
-    </main>
+    <!-- LISTA DE VÍDEOS -->
+    <section class="w-[370px] flex flex-col h-full">
+      <!-- Input de pesquisa -->
+      <input type="text" id="search-input" placeholder="Pesquisar vídeos..."
+        class="w-full p-2 rounded-lg border border-gray-300 bg-white text-sm text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-    <script>
-        let videoAtual = "";
-        let todosVideos = [];
-        let videosFiltrados = [];
+      <!-- Lista -->
+      <aside id="video-list" class="flex-1 overflow-y-auto space-y-4 mt-4">
+        <!-- Vídeos são carregados aqui -->
+      </aside>
+    </section>
+  </main>
 
-        function carregarVideo(element, url, titulo, descricao) {
-            if (url !== videoAtual) {
-                document.getElementById('video-iframe').src = url;
-                document.getElementById('video-titulo').textContent = titulo;
-                document.getElementById('video-descricao').textContent = descricao;
-                videoAtual = url;
-            }
-        }
+  <script>
+    let videoAtual = "";
+    let todosVideos = [];
+    let videosFiltrados = [];
 
-        function carregarListaVideos(videos) {
-            const videoList = document.getElementById('video-list');
-            videoList.innerHTML = "";
-            videos.forEach(video => {
-                const videoElement = document.createElement('div');
-                videoElement.className = 'cursor-pointer flex items-center space-x-4 bg-white p-2 mx-1 rounded-lg shadow hover:bg-gray-200';
-                videoElement.onclick = () => carregarVideo(videoElement, video.link, video.titulo, video.descricao);
-                videoElement.innerHTML = `
-    <img class="w-24 h-16 rounded-lg" src="${video.thumbnail}" alt="Thumbnail ${video.titulo}">
-    <p class="text-sm text-gray-800 truncate max-w-full">${video.titulo}</p>
-`;
+    function carregarVideo(element, url, titulo, descricao) {
+      if (url !== videoAtual) {
+        document.getElementById('video-iframe').src = url;
+        document.getElementById('video-titulo').textContent = titulo;
+        document.getElementById('video-descricao').textContent = descricao;
+        videoAtual = url;
+      }
+    }
 
-                videoList.appendChild(videoElement);
-            });
-        }
+    function carregarListaVideos(videos) {
+  const videoList = document.getElementById('video-list');
+  videoList.innerHTML = "";
+  videos.forEach(video => {
+    const videoElement = document.createElement('div');
+    videoElement.className = 'flex items-center bg-white rounded-lg p-2 border border-gray-200 cursor-pointer hover:bg-gray-100 transition';
+    videoElement.onclick = () => carregarVideo(videoElement, video.link, video.titulo, video.descricao);
+    videoElement.innerHTML = `
+      <img class="w-[162px] h-[98px] rounded-lg object-cover" src="${video.thumbnail}" alt="Thumbnail ${video.titulo}">
+      <div class="ml-4 flex-1 overflow-hidden">
+        <h3 class="text-sm font-semibold text-gray-800 line-clamp-2">${video.titulo}</h3>
+        <p class="text-gray-500 text-xs mt-1">${video.categoria}</p>
+      </div>
+    `;
+    videoList.appendChild(videoElement);
+  });
+}
 
-        function obterParametroQuery(nome) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(nome);
-        }
+    function obterParametroQuery(nome) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(nome);
+    }
 
-        function filtrarVideos(termo) {
-            const termoLower = termo.toLowerCase();
-            const resultados = videosFiltrados.filter(video =>
-                video.titulo.toLowerCase().includes(termoLower)
-            );
-            carregarListaVideos(resultados);
-        }
+    function filtrarVideos(termo) {
+      const termoLower = termo.toLowerCase();
+      const resultados = videosFiltrados.filter(video =>
+        video.titulo.toLowerCase().includes(termoLower)
+      );
+      carregarListaVideos(resultados);
+    }
 
-        window.onload = function () {
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const categoria = obterParametroQuery('categoria');
-                    todosVideos = data.videos;
+    window.onload = function () {
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          const categoria = obterParametroQuery('categoria');
+          todosVideos = data.videos;
 
-                    videosFiltrados = categoria
-                        ? todosVideos.filter(video => video.categoria === categoria)
-                        : todosVideos;
+          videosFiltrados = categoria
+            ? todosVideos.filter(video => video.categoria === categoria)
+            : todosVideos;
 
-                    if (videosFiltrados.length > 0) {
-                        carregarListaVideos(videosFiltrados);
-                        carregarVideo(null, videosFiltrados[0].link, videosFiltrados[0].titulo, videosFiltrados[0].descricao);
-                    }
+          if (videosFiltrados.length > 0) {
+            carregarListaVideos(videosFiltrados);
+            carregarVideo(null, videosFiltrados[0].link, videosFiltrados[0].titulo, videosFiltrados[0].descricao);
+          }
 
-                    document.getElementById('search-input').addEventListener('input', (e) => {
-                        filtrarVideos(e.target.value);
-                    });
-                })
-                .catch(error => console.error('Erro ao carregar os vídeos:', error));
-        };
-    </script>
+          document.getElementById('search-input').addEventListener('input', (e) => {
+            filtrarVideos(e.target.value);
+          });
+        })
+        .catch(error => console.error('Erro ao carregar os vídeos:', error));
+    };
+  </script>
+
 </body>
+
 </html>
