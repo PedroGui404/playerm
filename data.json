@@ -12,21 +12,21 @@
             "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=53cb5dce-1031-4b9b-91b3-ef876d2436ad",
             "descricao": "Descrição da Aula 2",
             "categoria": "scanntech",
-            "thumbnail": "/Imagens/Scannview_Abas_macro.png"
+            "thumbnail": "Imagens/Scannview_Abas_macro.png"
         },
         {
             "titulo": "Aula 3",
             "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/gizelle_mamede_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=3b841447-a50f-468d-9ffb-1011dab714a1",
             "descricao": "teste scanntech",
             "categoria": "scanntech",
-            "thumbnail": "/Imagens/Relatorio_Scannshare.png"
+            "thumbnail": "Imagens/Relatorio_Scannshare.png"
         },
         {
             "titulo": "kami teste",
             "link": "https://www.youtube.com/embed/tgbNymZ7vqY",
             "descricao": "Descrição da Aula 3",
             "categoria": "kami",
-            "thumbnail": "/Imagens/Overview_Fabric_Kami.png"
+            "thumbnail": "Imagens/Overview_Fabric_Kami.png"
         }
     ]
 }
