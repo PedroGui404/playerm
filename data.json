@@ -48,6 +48,27 @@
             "descricao": "Descrição da Scanntech - Oportunidades mapeadas por filial - RJ (Gerente Márcio G. e Supervisores)",
             "categoria": "scanntech",
             "thumbnail": "Imagens/Scanntech_Oportunidades_mapeadas.png"
+        },
+        {
+            "titulo": "Reunião Alinhamento Kami Consultoria",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/bianca_anjos_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=783ba79e-f888-4aac-a609-c9225501b20f&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição de Reunião Alinhamento Kami Consultoria",
+            "categoria": "kami",
+            "thumbnail": "Imagens/Reuniao_Alinhamento_Kami_Consultoria.png"
+        },
+        {
+            "titulo": "Nielsen Estudo Low Tier",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/christina_larroude_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=c9bc2772-c206-4b5e-8dc8-2cf3c85fc152&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição de Nielsen Estudo Low Tier",
+            "categoria": "nielsen",
+            "thumbnail": "Imagens/Estudo_low_tier_Nielsen.png"
+        },
+        {
+            "titulo": "Baixando dados do FLATFILE",
+            "link": "https://grupoedsonqueiroz.sharepoint.com/sites/MBRApp/_layouts/15/embed.aspx?UniqueId=d16219fc-c8be-46a9-a3f5-b6ee62689cd6&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Descrição de Baixando dados do FLATFILE",
+            "categoria": "nielsen",
+            "thumbnail": "Imagens/Baixando_dados_do_FLATFILE.png"
         }
     ]
 }
