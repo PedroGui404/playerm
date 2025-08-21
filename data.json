@@ -69,6 +69,14 @@
             "descricao": "Descrição de Baixando dados do FLATFILE",
             "categoria": "nielsen",
             "thumbnail": "Imagens/Baixando_dados_do_FLATFILE.png"
+        },
+        {
+            "titulo": "RAIO X DAS MARCAS - Tutorial",
+            "link": "https://grupoedsonqueiroz-my.sharepoint.com/personal/inteligencia_minalbabrasil_com_br/_layouts/15/embed.aspx?UniqueId=00a350fc-7d68-4b5a-b52a-ad491151dfed&embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+            "descricao": "Aprenda como navegar pelo Raio X das Marcas no app da IMMB.",
+            "categoria": "immb",
+            "thumbnail": "Imagens/raiox_marcas.png"
         }
     ]
+
 }
